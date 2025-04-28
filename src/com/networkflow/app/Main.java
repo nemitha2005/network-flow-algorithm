@@ -14,7 +14,7 @@ public class Main {
         String inputFile;
 
         if (args.length != 1) {
-            System.out.println("No input file provided. Using default network.txt");
+            System.out.println("Using default network.txt");
             inputFile = "resources/network.txt";
         } else {
             inputFile = args[0];
