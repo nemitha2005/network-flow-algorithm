@@ -4,45 +4,42 @@ import com.networkflow.model.Edge;
 import com.networkflow.model.FlowNetwork;
 
 /**
- * Global Utility class that for formatting and displaying network information
+ * Utility class for formatting and displaying network information
  */
 public class OutputFormatter {
 
     /**
-     * Display summary of the network topology
+     * Print information about the network topology
      *
      * @param network flow network to display information about
      */
-    public static void displayNetworkSummary(FlowNetwork network) {
-        System.out.println("===== NETWORK TOPOLOGY =====");
-        System.out.println("Total vertices: " + network.getNumberOfNodes());
-        System.out.println("Total connections: " + network.getEdges().size());
-        System.out.println("Entry point: Node #" + network.getSource().getId());
-        System.out.println("Exit point: Node #" + network.getTarget().getId());
+    public static void printNetworkInfo(FlowNetwork network) {
+        System.out.println("Network Information:");
+        System.out.println("Number of nodes: " + network.getNumberOfNodes());
+        System.out.println("Number of edges: " + network.getEdges().size());
+        System.out.println("Source node: " + network.getSource().getId());
+        System.out.println("Target node: " + network.getTarget().getId());
 
-        System.out.println("\nConnection Details:");
+        System.out.println("Edges:");
         for (Edge edge : network.getEdges()) {
-            System.out.println("  Link " + edge.getFrom().getId() + " → " +
-                    edge.getTo().getId() + " [Max throughput: " +
-                    edge.getCapacity() + " units]");
+            System.out.println("  From " + edge.getFrom().getId() +
+                    " to " + edge.getTo().getId() +
+                    " (capacity: " + edge.getCapacity() + ")");
         }
-        System.out.println("===========================\n");
     }
 
     /**
-     * Displays final state of the network after execution
+     * Print final state of the network with flow values
      *
      * @param network flow network with updated flow values
      */
-    public static void displayFinalState(FlowNetwork network) {
-        System.out.println("\n===== FINAL CONFIGURATION =====");
+    public static void printFinalState(FlowNetwork network) {
+        System.out.println("Final network state:");
         for (Edge edge : network.getEdges()) {
-            int usage = (int)((double)edge.getFlow() / edge.getCapacity() * 100);
-            System.out.println("  Link " + edge.getFrom().getId() + " → " +
-                    edge.getTo().getId() + " | Current: " +
-                    edge.getFlow() + " | Capacity: " +
-                    edge.getCapacity() + " | Usage: " + usage + "%");
+            System.out.println("  Edge from " + edge.getFrom().getId() +
+                    " to " + edge.getTo().getId() +
+                    " (flow: " + edge.getFlow() + "/" +
+                    edge.getCapacity() + ")");
         }
-        System.out.println("===============================");
     }
 }

@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FlowNetwork {
-    private List<Node> nodes;
-    private List<Edge> edges;
-    private int sourceId;
-    private int targetId;
+    private final List<Node> nodes;
+    private final List<Edge> edges;
+    private final int sourceId;
+    private final int targetId;
 
     public FlowNetwork(int numberOfNodes) {
         nodes = new ArrayList<>(numberOfNodes);
@@ -40,14 +40,6 @@ public class FlowNetwork {
 
     public Node getTarget() {
         return nodes.get(targetId);
-    }
-
-    public List<Node> getNodes() {
-        return nodes;
-    }
-
-    public Node getNode(int id) {
-        return nodes.get(id);
     }
 
     public List<Edge> getEdges() {
