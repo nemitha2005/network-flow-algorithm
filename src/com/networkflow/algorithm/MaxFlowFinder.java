@@ -42,19 +42,23 @@ public class MaxFlowFinder {
         Node source = network.getSource();
         Node target = network.getTarget();
 
+        steps.add("========================================");
         steps.add("Start maximum flow calculation:");
         steps.add("Source node: " + source.getId());
         steps.add("Target node: " + target.getId());
+        steps.add("----------------------------------------");
 
         // Repeat until no more augmenting paths
         while (true) {
             iteration++;
-            steps.add("Iteration " + iteration + ":");
+            steps.add("\nIteration " + iteration + ":");
+            steps.add("----------------------------------------");
 
             // Try to get a path from source to target
             Map<Node, Node> parentMap = findAugmentingPath(source, target);
             if (!parentMap.containsKey(target)) {
                 steps.add("No more paths found.");
+                steps.add("----------------------------------------");
                 break;
             }
 
@@ -66,7 +70,7 @@ public class MaxFlowFinder {
             StringBuilder pathDescription = new StringBuilder(" Path found, flow possible: " + pathFlow + ":\n");
 
             for (Edge edge : pathEdges) {
-                pathDescription.append(" Edge from ").append(edge.getFrom().getId()).append(" to ").append(edge.getTo().getId()).append(" (flow: ").append(edge.getFlow()).append("/").append(edge.getCapacity()).append(")\n");
+                pathDescription.append("   Edge from ").append(edge.getFrom().getId()).append(" to ").append(edge.getTo().getId()).append(" (flow: ").append(edge.getFlow()).append("/").append(edge.getCapacity()).append(")\n");
             }
             steps.add(pathDescription.toString().trim());
 
@@ -75,9 +79,11 @@ public class MaxFlowFinder {
             maxFlow += pathFlow;
 
             steps.add("Flow increased by " + pathFlow + ", total flow now " + maxFlow);
+            steps.add("----------------------------------------");
         }
 
-        steps.add("Maximum flow is " + maxFlow);
+        steps.add("\nMaximum flow is " + maxFlow);
+        steps.add("========================================");
         return maxFlow;
     }
 

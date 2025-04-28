@@ -56,14 +56,19 @@ public class Main {
 
             // Calculate maximum flow
             System.out.println("Calculating maximum flow...");
+            System.out.println("========================================");
             System.out.println("Results:");
+            System.out.println("----------------------------------------");
 
             MaxFlowFinder maxFlowFinder = new MaxFlowFinder(network);
             int maxFlow = maxFlowFinder.findMaxFlow();
 
             // Display results
+            System.out.println("========================================");
             System.out.println("Maximum flow: " + maxFlow);
+            System.out.println("========================================");
             System.out.println("Detailed execution log:");
+            System.out.println("----------------------------------------");
 
             // Show all steps that performed
             for (String step : maxFlowFinder.getExplanationSteps()) {
