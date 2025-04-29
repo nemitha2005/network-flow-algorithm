@@ -23,11 +23,11 @@ public class NetworkParser {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             // First line tells how many nodes
-            String line = reader.readLine();
+            String line       = reader.readLine();
             int numberOfNodes = Integer.parseInt(line.trim());
 
             // Make the network with that many nodes
-            network = new FlowNetwork(numberOfNodes);
+            network           = new FlowNetwork(numberOfNodes);
 
             // Next lines are edges
             while ((line = reader.readLine()) != null) {
@@ -36,8 +36,8 @@ public class NetworkParser {
                     continue;
                 }
 
-                int from = Integer.parseInt(parts[0]);
-                int to = Integer.parseInt(parts[1]);
+                int from     = Integer.parseInt(parts[0]);
+                int to       = Integer.parseInt(parts[1]);
                 int capacity = Integer.parseInt(parts[2]);
 
                 // add the edge

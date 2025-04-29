@@ -7,8 +7,8 @@ package com.networkflow.model;
 public class Edge {
     private final Node from;
     private final Node to;
-    private final int capacity;
-    private int flow;
+    private final int  capacity;
+    private int        flow;
 
     /**
      * Make new edge with given nodes and capacity.
@@ -19,10 +19,10 @@ public class Edge {
      * @param capacity how much flow can go through
      */
     public Edge(Node from, Node to, int capacity) {
-        this.from = from;
-        this.to = to;
-        this.capacity = capacity;
-        this.flow = 0;
+        this.from     =  from;
+        this.to       =  to;
+        this.capacity =  capacity;
+        this.flow     =  0;
     }
 
     /**

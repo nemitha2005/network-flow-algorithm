@@ -8,7 +8,7 @@ import java.util.List;
  * Maintain lists of incoming and outgoing edges.
  */
 public class Node {
-    private final int id;
+    private final int        id;
     private final List<Edge> outgoingEdges;
     private final List<Edge> incomingEdges;
 
@@ -18,7 +18,7 @@ public class Node {
      * @param id unique identifier (this node)
      */
     public Node(int id) {
-        this.id = id;
+        this.id            = id;
         this.outgoingEdges = new ArrayList<>();
         this.incomingEdges = new ArrayList<>();
     }

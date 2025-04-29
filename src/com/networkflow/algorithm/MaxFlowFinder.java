@@ -27,8 +27,8 @@ public class MaxFlowFinder {
      * @param network flow network to work on
      */
     public MaxFlowFinder(FlowNetwork network) {
-        this.network = network;
-        this.steps = new ArrayList<>();
+        this.network   = network;
+        this.steps     = new ArrayList<>();
         this.iteration = 0;
     }
 
@@ -96,7 +96,7 @@ public class MaxFlowFinder {
      */
     private Map<Node, Node> findAugmentingPath(Node source, Node target) {
         Map<Node, Node> parentMap = new HashMap<>();
-        Queue<Node> queue = new LinkedList<>();
+        Queue<Node> queue         = new LinkedList<>();
 
         queue.add(source);
 
@@ -138,12 +138,12 @@ public class MaxFlowFinder {
      */
     private int findBottleneckCapacity(Map<Node, Node> parentMap, Node source, Node target) {
         int bottleneck = Integer.MAX_VALUE;
-        Node current = target;
+        Node current   = target;
 
         // Go backward from target to source
         while (!current.equals(source)) {
             Node parent = parentMap.get(current);
-            Edge edge = findEdge(parent, current);
+            Edge edge   = findEdge(parent, current);
 
             if (edge != null) {
                 if (edge.getFrom().equals(parent)) {
@@ -172,7 +172,7 @@ public class MaxFlowFinder {
 
         while (!current.equals(source)) {
             Node parent = parentMap.get(current);
-            Edge edge = findEdge(parent, current);
+            Edge edge   = findEdge(parent, current);
 
             if (edge != null) {
                 if (edge.getFrom().equals(parent)) {
@@ -196,7 +196,7 @@ public class MaxFlowFinder {
      */
     private List<Edge> getPathEdges(Map<Node, Node> parentMap, Node source, Node target) {
         List<Edge> pathEdges = new ArrayList<>();
-        Node current = target;
+        Node current         = target;
 
         // Collect edges by walking back from target
         while (!current.equals(source)) {

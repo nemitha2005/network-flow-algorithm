@@ -9,8 +9,8 @@ import java.util.List;
 public class FlowNetwork {
     private final List<Node> nodes;
     private final List<Edge> edges;
-    private final int sourceId;
-    private final int targetId;
+    private final int        sourceId;
+    private final int        targetId;
 
     /**
      * Create new flow network with the specified number of nodes.
@@ -39,9 +39,9 @@ public class FlowNetwork {
      */
     public Edge addEdge(int from, int to, int capacity) {
         Node fromNode = nodes.get(from);
-        Node toNode = nodes.get(to);
+        Node toNode   = nodes.get(to);
 
-        Edge edge = new Edge(fromNode, toNode, capacity);
+        Edge edge     = new Edge(fromNode, toNode, capacity);
 
         fromNode.addOutgoingEdge(edge);
         toNode.addIncomingEdge(edge);
